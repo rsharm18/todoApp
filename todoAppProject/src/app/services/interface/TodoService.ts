@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 export interface TodoService{
 
     addTodoItem(item:TodoItemModel):void;
-    updateTodoItem(item:TodoItemModel, index:number):void;
-    deleteTodoItem(item:TodoItemModel, index:number):void;
+    updateTodoItem(updatedItem:TodoItemModel,index:number):void;
+    deleteTodoItem(index:number):void;
 
     getTodoItems():TodoItemModel[];
 

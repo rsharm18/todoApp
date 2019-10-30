@@ -17,14 +17,22 @@ export class TodoServiceImp implements TodoService{
     this.todoItems.push(item);
     //console.log(`After no of items ${this.todoItems.length}`);
   }
-  updateTodoItem(item: TodoItemModel, index:number) {
+  updateTodoItem(updatedItem: TodoItemModel, index:number) {
     
-    this.todoItems[index] = item;
+    this.todoItems[index] = updatedItem;
 
+    console.log(`updated item ${updatedItem.taskName}  ${updatedItem.dueDate}  ${updatedItem.priority}`);
+
+    //this.printItems();
   }
-  deleteTodoItem(item: TodoItemModel, index:number) {
+  deleteTodoItem(index:number) {
     this.todoItems.splice(index, 1);
   }
+
+  printItems()
+{
+  this.todoItems.forEach(updatedItem => console.log(`item ${updatedItem.taskName}  ${updatedItem.dueDate}  ${updatedItem.priority}`));
+}
   getTodoItems(): TodoItemModel[] {
     //console.log(`no of items ${this.todoItems.length}`);
     if(this.todoItems.length == 0)

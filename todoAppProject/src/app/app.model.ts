@@ -1,3 +1,5 @@
+import { task_priority } from './app.config';
+
  
  export class TodoItemModel{
  

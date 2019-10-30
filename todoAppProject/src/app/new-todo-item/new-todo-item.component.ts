@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoServiceImp } from '../services/todo-service.service';
 import { TodoItemModel } from '../app.model';
+import { task_priority } from '../app.config';
 
 @Component({
   selector: 'app-new-todo-item',
@@ -20,6 +21,8 @@ export class NewTodoItemComponent implements OnInit {
 
   saveTask()
   {
+    console.log(`this.priority = ${this.priority}`);
+
     if (this.myTask !== null && this.priority!=null) {
       //Get the input value
       let task = new TodoItemModel(this.myTask,new Date(),this.priority);
@@ -32,6 +35,15 @@ export class NewTodoItemComponent implements OnInit {
       this.editMode = false;
       this.myTask = "";
   }
+}
+
+getPriorityList():{}{
+  let obj = [
+              {"key":task_priority.URGENT +1,"value":"URGENT"},
+              {"key":task_priority.DAYS +1 ,"value":"DAYS"},
+              {"key":task_priority.WEEKS +1 ,"value":"WEEK"}
+          ]
+  return obj;
 }
 
 }

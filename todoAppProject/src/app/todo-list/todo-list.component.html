@@ -1,8 +1,16 @@
-<div class="row">
 
-        <table class="table">
+<div class="w-100" style="background-color: #eee;">
+        <div class="w-100" *ngFor="let task of getItems(); index as i" width='100%'>
+                <app-todo-item [task]=task [index]=i (onUpdateTask)="updateTask($event)" (onDeleteTask)="deleteTask($event)"></app-todo-item>
+        </div>
+</div>
+
+<!-- <div class="row">
+    
+
+        <table class="table table-bordered" width='100%'>
                <tbody >
-                    <tr *ngFor="let task of getItems(); index as i"><app-todo-item [task]=task [index]=i></app-todo-item></tr>
+                    <tr *ngFor="let task of getItems(); index as i" width='100%'><app-todo-item [task]=task [index]=i></app-todo-item></tr>
                 </tbody>
         </table>
-</div>
+</div> -->

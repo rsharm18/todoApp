@@ -1,22 +1,79 @@
 <table class="table">
         <thead *ngIf="show">
           <tr>
+              <th scope="col">#</th>
             <th scope="col">Todo Item</th>
             <th scope="col">Due Date</th>
-            <th scope="col">Priority</th>
-            <th scope="col">Change Priority</th>
+            <!--th scope="col">Priority</th-->
+            <th scope="col">Task Priority</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
             <tr>
-                    <td>{{getTaskName()}}</td>
-                    <td>{{getDueDate()}}</td>
-                    <td>{{getPriority()}}</td>
-                    <td>
-                        <button type="button" (click)="setPriority(1)"  class="btn btn-danger">Urgent</button> &nbsp;&nbsp;
-                        <button type="button" (click)="setPriority(2)" class="btn btn-warning">Days</button> &nbsp;&nbsp;
-                        <button type="button" (click)="setPriority(3)" class="btn btn-primary">Week</button>
+                    <th scope="row">{{index + 1}}</th>
+                    <td width="30%">{{getTaskName()}}</td>
+                    <td width="10%">{{getDueDate()}}</td>
+                    <!--td width="5%" >{{getPriority()}}</td-->
+                    <td width="25%">
+                      
+                        <button type="button" (click)="setPriority(1)"  [ngClass]="{
+                          'btn btn-outline-danger': getPriority() == 1,
+                          'btn btn-outline-secondary' : getPriority() != 1
+                        }" >Urgent</button> &nbsp;&nbsp;
+                        <button type="button" (click)="setPriority(2)" [ngClass]="{
+                          'btn btn-outline-warning': getPriority() == 2,
+                          'btn btn-outline-secondary' : getPriority() != 2
+                        }">Days</button> &nbsp;&nbsp;
+                        <button type="button"  (click)="setPriority(3)" [ngClass]="{
+                          'btn btn-outline-primary': getPriority() == 3,
+                          'btn btn-outline-secondary' : getPriority() != 3
+                        }">Week</button>
+                    </td>
+                    <td width="35%">
+                        <button type="button" (click)="deleteTask()" class="btn btn-danger">Delete</button> 
                     </td>
                 </tr>
             </tbody>
         </table>
+
+        <!-- <div class="container"  *ngIf="show">
+            <div class="row">
+              <div class="col-2">
+                #
+              </div>
+              <div class="col-3">
+                Todo Item
+              </div>
+              <div class="col-3">
+                  Due Date
+              </div>
+
+              <div class="col-4">
+                  Priority
+              </div>
+              
+            </div>
+            <br>
+          </div>
+          <div class="container d-flex flex-nowrap">
+              <div class="row">
+                <div class="col-2">
+                    {{index + 1}}
+                </div>
+                <div class="col-3">
+                    {{getTaskName()}} 
+                  
+                </div>
+                <div class="col-3">
+                    {{getDueDate()}}
+                </div>
+  
+                <div class="col-3 d-flex flex-nowrap">
+                    <button type="button" (click)="setPriority(1)"  class="btn btn-danger">Urgent</button> &nbsp;&nbsp;
+                        <button type="button" (click)="setPriority(2)" class="btn btn-warning">Days</button> &nbsp;&nbsp;
+                        <button type="button" (click)="setPriority(3)" class="btn btn-primary">Week</button>
+                </div>
+                
+              </div>
+            </div> -->
