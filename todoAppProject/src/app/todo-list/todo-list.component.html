@@ -1,0 +1,8 @@
+<div class="row">
+
+        <table class="table">
+               <tbody >
+                    <tr *ngFor="let task of getItems(); index as i"><app-todo-item [task]=task [index]=i></app-todo-item></tr>
+                </tbody>
+        </table>
+</div>

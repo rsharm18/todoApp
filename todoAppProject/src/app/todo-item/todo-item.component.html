@@ -1,0 +1,22 @@
+<table class="table">
+        <thead *ngIf="show">
+          <tr>
+            <th scope="col">Todo Item</th>
+            <th scope="col">Due Date</th>
+            <th scope="col">Priority</th>
+            <th scope="col">Change Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                    <td>{{getTaskName()}}</td>
+                    <td>{{getDueDate()}}</td>
+                    <td>{{getPriority()}}</td>
+                    <td>
+                        <button type="button" (click)="setPriority(1)"  class="btn btn-danger">Urgent</button> &nbsp;&nbsp;
+                        <button type="button" (click)="setPriority(2)" class="btn btn-warning">Days</button> &nbsp;&nbsp;
+                        <button type="button" (click)="setPriority(3)" class="btn btn-primary">Week</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
