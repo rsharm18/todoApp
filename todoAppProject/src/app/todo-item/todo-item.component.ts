@@ -42,13 +42,13 @@ export class TodoItemComponent implements OnInit {
 
   getDueDate():String{
     
-    return this.task.dueDate.getMonth()+"-"+this.task.dueDate.getDay() +"-"+this.task.dueDate.getFullYear();
+    return this.task.dueDate.toLocaleString();// .getMonth()+"-"+this.task.dueDate.getDay() +"-"+this.task.dueDate.getFullYear();
   }
   setPriority(priority:number)
   {
     if(confirm("Do you want to change the task priority?"))
     {
-      this.task = new TodoItemModel(this.task.taskName,this.task.dueDate,priority);
+      this.task = new TodoItemModel(this.task.taskName,priority);
       this.updateTask();
     //this.task.setPriority(priority);
     console.log(`priority changed to ${this.getPriority()}`);

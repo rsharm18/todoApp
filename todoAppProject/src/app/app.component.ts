@@ -11,20 +11,12 @@ import { TodoServiceImp } from './services/todo-service.service';
 export class AppComponent {
   title = 'todoAppProject';
 
-  items:TodoItemModel[];
   constructor(private service:TodoServiceImp)
   {
-    this.getItems();
+    
   }
 
-  getItems() : TodoItemModel[]
-  {
-    console.log("get items called");
-    this.items = this.service.getTodoItems();
-    console.log(this.items);
-
-    return this.items;
-  }
+ 
 
 
 }

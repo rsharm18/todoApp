@@ -25,7 +25,7 @@ export class NewTodoItemComponent implements OnInit {
 
     if (this.myTask !== null && this.priority!=null) {
       //Get the input value
-      let task = new TodoItemModel(this.myTask,new Date(),this.priority);
+      let task = new TodoItemModel(this.myTask,this.priority);
 
       if (!this.editMode) {
          console.log(`adding ${task}`);
@@ -39,9 +39,9 @@ export class NewTodoItemComponent implements OnInit {
 
 getPriorityList():{}{
   let obj = [
-              {"key":task_priority.URGENT +1,"value":"URGENT"},
-              {"key":task_priority.DAYS +1 ,"value":"DAYS"},
-              {"key":task_priority.WEEKS +1 ,"value":"WEEK"}
+              {"key":task_priority.URGENT,"value":"URGENT"},
+              {"key":task_priority.DAYS ,"value":"DAYS"},
+              {"key":task_priority.WEEKS ,"value":"WEEK"}
           ]
   return obj;
 }
